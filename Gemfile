@@ -49,6 +49,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'rubocop'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -57,6 +59,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
+  gem 'redcarpet'
 end
 
 group :test do 
