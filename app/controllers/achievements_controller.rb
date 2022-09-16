@@ -1,4 +1,8 @@
 class AchievementsController < ActionController::Base
+    def index
+        @achievements = Achievement.public_access
+    end
+
     def new 
         @achievement = Achievement.new
     end
@@ -12,9 +16,27 @@ class AchievementsController < ActionController::Base
         end
     end
 
+    def edit
+        @achievement = Achievement.find(params[:id])
+    end
+
+    def update
+        @achievement = Achievement.find(params[:id])
+        if @achievement.update(achievement_params)
+            redirect_to achievement_path(@achievement)
+        else
+            render :edit
+        end
+        
+    end
+
     def show
         @achievement = Achievement.find(params[:id])
         @description = Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@achievement.description)
+    end
+    def destroy
+        Achievement.destroy(params[:id])
+        redirect_to achievement_path
     end
 
     private
