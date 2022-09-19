@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :achievement do
-    title { "MyString" }
+    title { "MyString" + rand(10000).to_s }
     description { "MyText" }
     featured { false }
     cover_image { "MyString" }
